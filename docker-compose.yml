@@ -1,0 +1,48 @@
+version: "3"
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx-stable-alpine-1
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - mern-app
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+#      - ./test:/var/www/html
+  react-app:
+    build:
+      context: ./client
+    stdin_open: true
+    ports: 
+      - "3000:3000"
+    networks:
+      - mern-app
+    volumes:
+      - ./client/:/usr/src/app
+      - /usr/src/app/node_modules
+  api-server:
+    build:
+      context: ./server
+    env_file: ./server/config/dev.env
+    ports:
+      - "5000:5000"
+    networks:
+      - mern-app
+    volumes:
+      - ./server/:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    volumes:
+      - ./mongo-data:/data/db
+networks:
+  mern-app:
+    driver: bridge
