@@ -1,5 +1,5 @@
 # Deploy MERN Application with Docker Compose
-
+test
 Live stream: https://youtu.be/DftsReyhz2Q
 
 A few months ago I released a videos showing how to run a MERN stack application with Docker Compose: [../2020-08-31-docker-compose](../2020-08-31-docker-compose).
