@@ -23,4 +23,6 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+          SONAR_ORGANIZATION: gourav-oodles
+          SONAR_PROJECT_KEY: mern-compose
+          SONAR_SCANNER_OPTS: -Xmx1024m
