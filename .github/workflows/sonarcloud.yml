@@ -25,11 +25,13 @@ jobs:
           args: >
             -Dsonar.organization=gourav-oodles
             -Dsonar.projectKey=mern-compose
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_ORGANIZATION: gourav-oodles
-          SONAR_PROJECT_KEY: mern-compose
-          SONAR_SCANNER_OPTS: -Xmx1024m
+
+#       - name: SonarCloud Scan
+#         uses: SonarSource/sonarcloud-github-action@master
+#         env:
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#           SONAR_ORGANIZATION: gourav-oodles
+#           SONAR_PROJECT_KEY: mern-compose
+#           SONAR_SCANNER_OPTS: -Xmx1024m
