@@ -25,7 +25,7 @@ jobs:
         with:
           args: >
             -Dsonar.organization=gourav-oodles
-            -Dsonar.projectKey=mern-compose
+            -Dsonar.projectKey=gourav-oodles_mern-compose
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
