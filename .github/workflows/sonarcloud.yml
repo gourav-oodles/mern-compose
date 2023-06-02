@@ -19,6 +19,13 @@ jobs:
 #         with:
 #           java-version: '11'
 
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.organization=gourav-oodles
+            -Dsonar.projectKey=mern-compose
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
