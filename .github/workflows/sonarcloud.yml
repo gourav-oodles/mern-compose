@@ -3,7 +3,8 @@ name: SonarCloud Analysis
 on:
   push:
     branches:
-      - '*'
+      - main        # The default branch
+      - dev    # The other branches to be analyzed
 
 jobs:
   sonarcloud:
