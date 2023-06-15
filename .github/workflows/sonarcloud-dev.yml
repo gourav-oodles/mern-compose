@@ -1,0 +1,38 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches:
+      - main        # The default branch
+      - dev    # The other branches to be analyze
+
+jobs:
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+#       - name: Set up JDK
+#         uses: actions/setup-java@v2
+#         with:
+#           java-version: '11'
+
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.organization=gourav-oodles
+            -Dsonar.projectKey=gourav-oodles_mern-compose
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+#       - name: SonarCloud Scan
+#         uses: SonarSource/sonarcloud-github-action@master
+#         env:
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#           SONAR_ORGANIZATION: gourav-oodles
+#           SONAR_PROJECT_KEY: mern-compose
+#           SONAR_SCANNER_OPTS: -Xmx1024m
