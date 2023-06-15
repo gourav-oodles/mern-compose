@@ -5,6 +5,8 @@ on:
     branches:
       - main        # The default branch
       - dev    # The other branches to be analyz
+  pull_request:
+      types: [opened, synchronize, reopened]
 
 jobs:
   sonarcloud:
