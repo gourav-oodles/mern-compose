@@ -1,0 +1,29 @@
+name: Workflow Trigger
+
+on:
+  workflow_run:
+    workflows: ["SonarCloud Analysis"]
+    types:
+      - completed
+
+jobs:
+  trigger:
+    name: Trigger Workflows
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger SonarCloud Analysis in dev branch
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: dev
+          title: Trigger SonarCloud Analysis in dev branch
+          body: This pull request triggers SonarCloud Analysis in the dev branch.
+
+      # Add additional steps to trigger other workflows in different branches
+      # Example:
+      # - name: Trigger SonarCloud Analysis in other branch
+      #   uses: peter-evans/create-pull-request@v3
+      #   with:
+      #     branch: other-branch
+      #     title: Trigger SonarCloud Analysis in other branch
+      #     body: This pull request triggers SonarCloud Analysis in the other branch.
