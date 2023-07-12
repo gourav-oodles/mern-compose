@@ -1,0 +1,23 @@
+name: Update env compose
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ssh-and-update:
+#     runs-on: ubuntu-latest
+    runs-on: self-hosted
+
+    steps:
+    - name: SSH into EC2 instance
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST2 }}
+        username: ${{ secrets.SSH_USER2 }}
+        key: ${{ secrets.SSH_PRIVATE_KEY2 }}
+        script: |
+          # Example commands to run on the  EC2 instance
+          cd /home/ubuntu
+          ls -lah
