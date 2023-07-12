@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  ssh-and-update 2:
+  ssh-and-update-2:
 #     runs-on: ubuntu-latest
     runs-on: self-hosted
 
