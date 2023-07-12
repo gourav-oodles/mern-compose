@@ -1,4 +1,4 @@
-name: Update env compose
+name: Update env compose 2
 
 on:
   push:
